@@ -34,6 +34,7 @@ namespace animal_Race
             this.label1 = new System.Windows.Forms.Label();
             this.startGame = new System.Windows.Forms.Button();
             this.startRules = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -41,7 +42,7 @@ namespace animal_Race
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Green;
-            this.label1.Location = new System.Drawing.Point(167, 28);
+            this.label1.Location = new System.Drawing.Point(182, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(192, 33);
             this.label1.TabIndex = 0;
@@ -50,9 +51,9 @@ namespace animal_Race
             // startGame
             // 
             this.startGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startGame.Location = new System.Drawing.Point(198, 119);
+            this.startGame.Location = new System.Drawing.Point(212, 194);
             this.startGame.Name = "startGame";
-            this.startGame.Size = new System.Drawing.Size(134, 47);
+            this.startGame.Size = new System.Drawing.Size(134, 51);
             this.startGame.TabIndex = 1;
             this.startGame.Text = "START";
             this.startGame.UseVisualStyleBackColor = true;
@@ -61,13 +62,26 @@ namespace animal_Race
             // startRules
             // 
             this.startRules.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startRules.Location = new System.Drawing.Point(198, 196);
+            this.startRules.Location = new System.Drawing.Point(212, 264);
             this.startRules.Name = "startRules";
-            this.startRules.Size = new System.Drawing.Size(134, 48);
+            this.startRules.Size = new System.Drawing.Size(134, 50);
             this.startRules.TabIndex = 2;
             this.startRules.Text = "Instructions and Rules";
             this.startRules.UseVisualStyleBackColor = true;
             this.startRules.Click += new System.EventHandler(this.viewInstructionsAndRules);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(164, 64);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 124);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TabStop = false;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // Opening_Screen
             // 
@@ -76,6 +90,7 @@ namespace animal_Race
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(538, 389);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.startRules);
             this.Controls.Add(this.startGame);
             this.Controls.Add(this.label1);
@@ -91,5 +106,6 @@ namespace animal_Race
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button startGame;
         private System.Windows.Forms.Button startRules;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

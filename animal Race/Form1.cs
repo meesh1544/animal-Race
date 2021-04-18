@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace animal_Race
 {
@@ -16,7 +17,7 @@ namespace animal_Race
     // Description: 
     // Author: Michelle Beckett
     // Date Created: 04/03/21
-    // Last Modified:
+    // Last Modified: 04/17/21
     //******************************************************************  
 
     public partial class Frog1 : Form
@@ -47,13 +48,26 @@ namespace animal_Race
             starcollection();
             Game_UpDate();
             Win();
-            //ResetGame();
+            PlaySound();
+        }
+
+        /// <summary>
+        /// when the lives are over a crash sound will appear
+        /// </summary>
+        private void PlaySound()
+        {
+            System.Media.SoundPlayer playauto_crash3 = new System.Media.SoundPlayer(Properties.Resources.auto_crash3);
+            playauto_crash3.Play();
         }
 
 
-
+        /// <summary>
+        /// allow the white road marks to move
+        /// </summary>
+        /// <param name="speed"></param>
         void moveline(int speed)
         {
+
             if (pictureBox1.Top >= 500)
             {
                 pictureBox1.Top = 0;
@@ -136,12 +150,15 @@ namespace animal_Race
             pictureBox8.Top += speed;
 
         }
-
+        
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
 
+        /// <summary>
+        /// the tiger xs 3 is able to move with the moveline and is placed throughout the form
+        /// </summary>
         int collectedstars = 0;
         Random r = new Random();
         int a, b;
@@ -178,6 +195,10 @@ namespace animal_Race
             }
         }
 
+        /// <summary>
+        /// the frog xs 2 is placed in the moveline and moves along the road
+        /// </summary>
+        /// <param name="speed"></param>
         void Frog(int speed)
         {
             if (frog2.Top >= 500)
@@ -201,6 +222,10 @@ namespace animal_Race
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>the grass moves with the moveline and is placed throughout the form
+        /// <param name="speed"></param>
         void Grass(int speed)
         {
             if (grass1.Top >= 500)
@@ -234,6 +259,10 @@ namespace animal_Race
             }
         }
 
+        /// <summary>
+        /// the stars xs 5 are placed along the moveline and are spread out within the form
+        /// </summary>
+        /// <param name="speed"></param>
         void stars(int speed)
         {
             if (star1.Top >= 500)
@@ -287,6 +316,9 @@ namespace animal_Race
             }
         }
 
+        /// <summary>
+        /// this is where the method allows the stars to be collected by the safari car to collect points
+        /// </summary>
         void starcollection()
         {
             if (car.Bounds.IntersectsWith(star1.Bounds))
@@ -378,6 +410,9 @@ namespace animal_Race
 
         }
 
+        /// <summary>
+        /// total life starts with red hearts and moves to black when it touches a tiger, frog, or grass
+        /// </summary>
         int life;
         void life_index()
         {
@@ -397,9 +432,13 @@ namespace animal_Race
 
                 over.Visible = true;
                 RoadMover.Stop();
+                PlaySound();
             }
         }
 
+        /// <summary>
+        /// minus one life when the safari car touchs a tiger, frog or dune grass
+        /// </summary>
         void Game_UpDate()
         {
             if (car.Bounds.IntersectsWith(tiger1.Bounds))
@@ -482,6 +521,9 @@ namespace animal_Race
            
         }
 
+        /// <summary>
+        /// when the safari car collects 20 stars-'You Win'
+        /// </summary>
         void Win()
         {
             if (car.Bounds.IntersectsWith(star1.Bounds) || collectedstars == 20)
@@ -535,6 +577,11 @@ namespace animal_Race
             }
         }
         
+        /// <summary>
+        /// how to move the safari car within the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
